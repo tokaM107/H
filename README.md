@@ -119,3 +119,4 @@ Standered deviation 50516.83535894512
 
 
 
+
