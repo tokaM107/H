@@ -163,7 +163,60 @@ df.to_csv('Salaries.csv', index=False)
 #### This is a sample of data after cleaning 
 <img width="708" alt="image" src="https://github.com/tokaM107/ShAI-BootCampAssigment-DataScience/assets/157342095/e17bdabf-f9a3-4bf2-b4d1-8bf5087ccb5d">
 
-
+#### finally, i repeated the same process 1,2 for the data after cleaning and i got this results: 
+` print(df.info())`
+```
+RangeIndex: 146731 entries, 0 to 146730
+Data columns (total 11 columns):
+ #   Column            Non-Null Count   Dtype  
+---  ------            --------------   -----  
+ 0   Id                146731 non-null  int64  
+ 1   EmployeeName      146731 non-null  object 
+ 2   JobTitle          146731 non-null  object 
+ 3   BasePay           146731 non-null  float64
+ 4   OvertimePay       146731 non-null  float64
+ 5   OtherPay          146731 non-null  float64
+ 6   Benefits          146731 non-null  float64
+ 7   TotalPay          146731 non-null  float64
+ 8   TotalPayBenefits  146731 non-null  float64
+ 9   Year              146731 non-null  int64  
+ 10  Agency            146731 non-null  object 
+dtypes: float64(6), int64(2), object(3)
+memory usage: 12.3+ MB
+```
+```
+ print( "Mean of totalPay : " , np.mean(df.loc[:,"TotalPay"])) #mean
+ print("Median of totalPay : " , np.median(df.loc[:,"TotalPay"]))
+ print("Max of totalPay: ", np.max(df.loc[:,"TotalPay"]))
+ print("Min totalPay: " ,np.min(df.loc[:,"TotalPay"]))
+ print("Mode of tatalPay:",  stats.mode(df.loc[:,"TotalPay"]))
+ print("Standered deviation", np.std(df.loc[:,"TotalPay"]))
+ print("Range of salaries: " ,np.ptp(df.loc[:,"TotalPay"]))
+```
+```
+Mean of totalPay :  75686.63794317494
+Median of totalPay :  72094.12
+Max of totalPay:  567595.43
+Min totalPay:  15.5
+Mode of tatalPay: ModeResult(mode=18594.0, count=82)
+Standered deviation 50175.3248206361
+Range of salaries:  567579.93
+```
+``` print(df.isnull().sum()) ```
+```
+Id                  0
+EmployeeName        0
+JobTitle            0
+BasePay             0
+OvertimePay         0
+OtherPay            0
+Benefits            0
+TotalPay            0
+TotalPayBenefits    0
+Year                0
+Agency              0
+dtype: int64
+```
 
 
 
