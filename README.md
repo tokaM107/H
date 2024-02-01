@@ -217,6 +217,70 @@ Year                0
 Agency              0
 dtype: int64
 ```
+## 4. Basic Data Visualization: 
+### tasks:
+#### 1.Create histograms or bar charts to visualize the distribution of salaries,
+#### 2.use pie charts to represent the proportion of employees in different departments.
+##### i used seaborn and matplotlib libraries to represent graphs
+
+
+##### histogram of distribution of salaries:
+![Figure_1](https://github.com/tokaM107/ShAI-BootCampAssigment-DataScience/assets/157342095/79a3d941-b29b-4584-a536-303b737b61f0)
+
+```
+#histogram of salaries
+sns.histplot(data=df, x="TotalPay" , bins=25)
+plt.xlim(15.5, 567595.43)
+plt.show()
+
+```
+
+##### there is no column for departments, so i found in the jobtitle column departments but it need to some operations to represent it as a pie chart: 
+##### first i used the method ` extract() ` to get the word after " department"
+
+```
+ df['dep'] = df['JobTitle'].str.extract(r'(\w+)\s+DEPARTMENT')
+ df.to_csv('/Users/tokamohamed/Downloads/Salaries.csv', index=False)
+```
+
+##### then i had a wrong department classfication as data have few lines like this: ` CHIEF OF DEPARTMENT, (FIRE DEPARTMENT) ` the method gives "OF" as a result. so i had to replace all "OF" values to "FIRE" 
+```
+ df['dep'] = df['dep'].str.replace('OF', 'FIRE')
+ df.to_csv('/Users/tokamohamed/Downloads/Salaries.csv', index=False)
+```
+##### after that, i made the pie chart to represent employee departments proportions
+```
+dep_counts = df['dep'].value_counts()
+plt.pie(dep_counts, labels=dep_counts.index, autopct='%1.1f%%')
+plt.title("Proportion of Employees in Departments")
+plt.show()
+```
+![image](https://github.com/tokaM107/ShAI-BootCampAssigment-DataScience/assets/157342095/cd375db3-371a-4f69-ae2b-152ed91fb210)
+
+##### pie chart represents employee percentage for the top 10 jobtitles: 
+###### the chart represents the top 10 as the data is very big 
+![image](https://github.com/tokaM107/ShAI-BootCampAssigment-DataScience/assets/157342095/ecffea54-5653-4f11-8ef0-cd8aa5a721f3)
+
+```
+#piechart of jobtitles
+job_counts = df['JobTitle'].str.lower().value_counts()
+top_n = 10  
+top_departments = job_counts.head(top_n)
+plt.pie(top_departments, labels=top_departments.index, autopct='%1.1f%%')
+plt.title("Proportion of Employees in Top 10 Departments")
+plt.show()
+```
+
+##### also, departments can be classfiy as the years 
+![image](https://github.com/tokaM107/ShAI-BootCampAssigment-DataScience/assets/157342095/305ff579-39ab-4b3e-ac12-0fc688897828)
+
+
+
+
+
+
+
+
 
 
 
