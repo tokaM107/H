@@ -274,6 +274,60 @@ plt.show()
 ##### also, departments can be classfiy as the years 
 ![image](https://github.com/tokaM107/ShAI-BootCampAssigment-DataScience/assets/157342095/305ff579-39ab-4b3e-ac12-0fc688897828)
 
+## 5. Grouped Analysis: 
+### Tasks: 
+#### 1.Group the data by one or more columns
+#### 2.calculate summary statistics for each group,
+#### 3.compare the average salaries across different groups.
+### solution
+#### In groubing data, I used ` groupby() ` method for grouping data accourding to ` Year ` column. 
+```
+df.groupby(['Year'])
+```
+#### to calculate summary statistics for each group i used `agg() ` method to calculate mean, median, min, max, std ,count 
+```
+['TotalPay'].agg(['count', 'mean', 'median', 'min', 'max', 'std']
+```
+
+```
+grouped_data = df.groupby(['Year'])['TotalPay'].agg(['count', 'mean', 'median', 'min', 'max', 'std'])
+print(grouped_data)
+```
+
+```
+      count      mean       median    min        max           std
+Year                                                               
+2011  35707  72595.460609  68813.14  17.78  567595.43  47168.232508
+2012  36335  74928.282957  71246.55  23.08  362844.66  49212.026306
+2013  36996  78810.654705  75254.37  15.83  347102.32  52412.220534
+2014  37693  76279.728792  72951.66  15.50  471952.64  51406.677417
+```
+#### in group 1 (2011) the ave salary was 72595.460609, group 2 (2012) the ave salary was 74928.282957 , group 3 (2013) the ave salary was 78810.654705 , group 4 (2014) the ave salary was 76279.728792 
+
+
+## 6. Simple Correlation Analysis:
+### tasks:
+#### Identify any correlation between salary and another numerical column, and plot a scatter plot to visualize the relationship.
+### solution 
+#### there is a postive relationship between totalpay and totalpaybenefits column as when total pay increases , totalpaybenefits increases.
+```
+plt.scatter(df['TotalPay'], df['TotalPayBenefits'])
+plt.xlabel('total pay')
+plt.ylabel('total pay with benefits')
+plt.title('Scatter Plot: total pay vs total pay benefits')
+plt.show()
+```
+![image](https://github.com/tokaM107/ShAI-BootCampAssigment-DataScience/assets/157342095/8eed0bf5-8944-4e2b-adaa-20910d7a08aa)
+
+#### alse, there is a positive relationship between basepay and total pay 
+```
+plt.scatter(df['BasePay'], df['TotalPay'])
+plt.xlabel('Base pay')
+plt.ylabel('total pay')
+plt.title('Scatter Plot: total pay vs Base pay')
+plt.show()
+```
+![image](https://github.com/tokaM107/ShAI-BootCampAssigment-DataScience/assets/157342095/90b5e16b-e002-494b-a90b-f185747b9487)
 
 
 
