@@ -329,6 +329,10 @@ plt.show()
 ```
 ![image](https://github.com/tokaM107/ShAI-BootCampAssigment-DataScience/assets/157342095/90b5e16b-e002-494b-a90b-f185747b9487)
 
+## 7. Summary of Insights:
+#### Write a brief report summarizing the findings and insights from the analyses.
+##### Dataset shows employees salaries and names. It has 13 columns and 148654 rows. Data has columns ‘Id’, EmployeeName’, ‘JobTitle’, ‘BasePay’, OvertimePay’, OtherPay, ’Benefits’’, TotalPay' -> salary, TotalPayBenefits, ’Year’, Notes’, Agency , ’Status’. 
+##### First of all, I calculated the basic statistics: mean , mode, median, max, min, std. After that, I cleaned the data by removing duplicated values and negative values. Then , I removed notes and statues column as they not effective. And remove base salary less than or equal zero as all employees not have base salary not work in the company. For data visualization, I used seaborn and matplotlib libraries to make graphs. The challenge I faced that there is no department column, so I spliced the column “job title ” to 3 main departments : fire , police , services and made pie chart. Then in grouping data, I classified data set according to “year” and calculated basic statistics and average salaries for each group. Then I made simple correlation between total pay and total pay benefits and they have positive relationship. 
 
 
 
